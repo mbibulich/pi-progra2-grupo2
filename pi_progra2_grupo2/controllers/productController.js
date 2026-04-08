@@ -1,7 +1,9 @@
-const bandas = require("../db/index");
+const products = require("../db/index");
 const controller = {
     index: function (req, res) {
-        res.send(bandas.lista);
+
+        return res.send("hola")
+       return  res.render('index', {products: products.lista});
     },
     detalle: function (req, res) {
         let id = req.params.id;

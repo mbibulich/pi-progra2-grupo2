@@ -1,96 +1,66 @@
 const bandas = {
     lista: [
-        {
-            nombre: "AC/DC",
-            integrantes: 5,
-            genero: "Rock",
-            topCanciones: ["Thunderstruck","Highway to hell","Back in black"],
-            cover: "images/acDc.jpg",
-            id: 1,
-            video: "https://www.youtube.com/watch?v=n_GFN3a0yj0"
-        },
-        {
-            nombre: "Guns N' Roses",
-            integrantes: 5,
-            genero: "Rock",
-            topCanciones: ["Sweet child o' mine", "November rain","Welcome to the jungle"],
-            cover: "images/acDc.jpg",
-            id: 2,
-            video: "https://www.youtube.com/watch?v=1w7OgIMMRc4"
-        },
-        {
-            nombre: "N.W.A",
-            integrantes: 5,
-            genero: "Hip hop",
-            topCanciones: ["Straight outta compton","Fuk da police","Boys in the hood"],
-            cover: "images/eminem.png",
-            id: 3,
-            video: "https://www.youtube.com/watch?v=TMZi25Pq3T8"
-        },
-        {
-            nombre: "Wu- tang clan",
-            integrantes: 8,
-            genero: "Hip hop",
-            topCanciones: ["C.R.E.A.M","Method man","Da mystery of chessboxin'"],
-            cover: "images/acDc.jpg",
-            id: 4,
-            video: "https://www.youtube.com/watch?v=PEnwXYJcSZc"
-        },
-        {
-            nombre: "Canserbero",
-            integrantes: 1,
-            genero: "Rap",
-            topCanciones: ["Es épico", "Maquiavéñico", "Jeremías 17:5"],
-            cover: "images/eminem.png",
-            id: 5,
-            video: "https://www.youtube.com/watch?v=sq6oc066w14"
-        },
-        {
-            nombre: "Eminem",
-            integrantes: 1,
-            genero: "Rap",
-            topCanciones: ["Lose yourself", "Stan", "The real slim shady"],
-            cover: "images/acDc.jpg",
-            id: 6,
-            video: "https://www.youtube.com/watch?v=gOMhN-hfMtY"
-        },
-        {
-            nombre: "Damas gratis",
-            integrantes: 7,
-            genero: "Cumbia",
-            topCanciones: ["Me vas a extrañar","Me muero de amor","No te creas tan importante"],
-            cover: "images/acDc.jpg",
-            id: 7,
-            video: "https://www.youtube.com/watch?v=iTNdq-GOVXc"
-        },
-        {
-            nombre: "La banda de lechuga",
-            integrantes: 2,
-            genero: "Cumbia",
-            topCanciones: ["Que locura fue enamorarme de ti","Cariño","La plazita"],
-            cover: "images/eminem.png",
-            id: 8,
-            video: "https://www.youtube.com/watch?v=QDy3f_FAML8"
-        },
-        {
-            nombre: "Los cafres",
-            integrantes: 8,
-            genero: "Reggae",
-            topCanciones: ["Casi q' me pierdo","Sé q' el mar","Bastará"],
-            cover: "images/acDc.jpg",
-            id: 9,
-            video: "https://www.youtube.com/watch?v=afBhdRSCMSQ"
-        },
-        {
-            nombre: "SOJA",
-            integrantes: 8,
-            genero: "Reggae",
-            topCanciones: ["True love","You and me","I don't wanna wait"],
-            cover: "images/eminem.png",
-            id: 10,
-            video: "https://www.youtube.com/watch?v=XqgWJ_yaU7E"
-        }
-    ]
+    {
+        id: 1,
+        nombre: "Buzo Hoodie Oversize",
+        descripcion: "Buzo con capucha y bolsillo canguro en color arena melange.",
+        img: "/images/products/buzo1.jpg"
+    },
+    {
+        id: 2,
+        nombre: "Buzo Quarter-Zip Auckland",
+        descripcion: "Buzo gris con cuello alto, cierre medio y bordado frontal.",
+        img: "/images/products/buzo2.jpg"
+    },
+    {
+        id: 3,
+        nombre: "Jean Wide Leg Celeste",
+        descripcion: "Pantalón de denim claro con corte ancho y lavado localizado.",
+        img: "/images/products/jeanHombre1.jpg"
+    },
+    {
+        id: 4,
+        nombre: "Jean Baggy Gris Oscuro",
+        descripcion: "Pantalón de jean gris gastado con costuras decorativas.",
+        img: "/images/products/jeanHombre2.jpg"
+    },
+    {
+        id: 5,
+        nombre: "Jean Joya Wide Leg",
+        descripcion: "Denim celeste decorado con apliques de strass en todo el frente.",
+        img: "/images/products/jeanMujer.jpg"
+    },
+    {
+        id: 6,
+        nombre: "Remera Boxy Fit Grafito",
+        descripcion: "Remera gris oscuro con estampa tipo rock y terminaciones al corte.",
+        img: "/images/products/remera1.jpg"
+    },
+    {
+        id: 7,
+        nombre: "Remera Heavy Cotton Negra",
+        descripcion: "Remera de algodón pesado con estampa gráfica en rojo y blanco.",
+        img: "/images/products/remera2.jpg"
+    },
+    {
+        id: 8,
+        nombre: "Short de Lino Negro",
+        descripcion: "Pantalón corto de lino con cintura elástica y cordón ajustable.",
+        img: "/images/products/short1.jpg"
+    },
+    {
+        id: 9,
+        nombre: "Short de Lino Off-White",
+        descripcion: "Short liviano en tono crudo con detalle de pinzas frontales.",
+        img: "/images/products/short2.jpg"
+    },
+    {
+        id: 10,
+        nombre: "Vestido Largo Halter",
+        descripcion: "Vestido de fiesta negro con cuello halter y detalle de aro metálico.",
+        img: "/images/products/vestido.jpg"
+    }
+]
 };
 
 module.exports = bandas;
