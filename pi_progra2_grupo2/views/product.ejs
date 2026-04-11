@@ -3,6 +3,7 @@
 <!-- Include Head -->
 <%- include('partials/head') %>
 
+	
 <body>
 	<!-- Header -->
 	<%- include('partials/header') %>
@@ -25,6 +26,7 @@
 						<%= product.descripcion %>
 					</p>
 				</article>
+
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% if (product.comentarios.length > 0) { %>
@@ -38,7 +40,7 @@
 										<%= product.comentarios[i].texto %>
 									</p>
 								</div>
-								
+			
 							</article>
 							<% } %>
 
