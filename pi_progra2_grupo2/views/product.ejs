@@ -12,7 +12,7 @@
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 	<!-- Header -->
@@ -92,6 +92,7 @@
 						<%= product.descripcion %>
 					</p>
 				</article>
+
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% if (product.comentarios.length > 0) { %>
@@ -105,7 +106,7 @@
 										<%= product.comentarios[i].texto %>
 									</p>
 								</div>
-								
+			
 							</article>
 							<% } %>
 
