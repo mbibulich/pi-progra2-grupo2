@@ -1,8 +1,8 @@
-const products = require("../db/index");
+const data = require("../db/index");
 
 const controller = {
     index: function (req, res) {
-         return  res.render('index', {products: products.lista});
+         return  res.render('index', {products: data.lista});
     }
 }
 

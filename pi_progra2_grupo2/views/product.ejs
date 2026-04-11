@@ -74,10 +74,12 @@
 			</nav>
 		</div>
 	</header>
+
+
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= product.nombre%></h2> 
 			<p class="product-detail-description">
 				<a href="product-edit.ejs">Editar</a>
 			</p>
@@ -85,59 +87,34 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="images/products/default-image.png" alt="" class="product-detail-img">
+					<img src="<%= product.img %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
+						<%= product.descripcion %>
+					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<article>
-							<img src="images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						<% if (product.comentarios.length > 0) { %>
+							<% for (let i = 0; i < product.comentarios.length; i++) { %>
+							<article>
+								<img src="/images/users/<%= product.comentarios[i].imagen %>" alt="">
+
+								<div class="data">
+									<p class="user">
+										<strong> <a href="/users"><%= product.comentarios[i].usuario %>:</a> </strong>
+										<%= product.comentarios[i].texto %>
 									</p>
-							</div>
-						</article>
-						<article>
-							<img src="images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article>
+								</div>
+								
+							</article>
+							<% } %>
+
+						<% } else { %>
+							<p>No hay comentarios todavía</p>
+						<% } %>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="" method="GET">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
