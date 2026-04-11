@@ -16,7 +16,7 @@ const controller = {
         if (productoEncontrado == false) {
             return res.send("Producto no encontrado");
         }
-        return res.render('product-detail', {product: productoEncontrado});
+        return res.render('product', {product: productoEncontrado});
     }
 }
 
