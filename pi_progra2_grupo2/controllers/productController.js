@@ -21,8 +21,11 @@ const controller = {
 
     add: function(req,res){
         res.render('product-add')
-    }
+    },
 
+    edit: function(req,res){
+        res.render('product-edit')
+    }
     
 }
 
