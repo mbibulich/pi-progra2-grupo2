@@ -3,10 +3,13 @@ const controller = {
         res.send(usuarios.lista);
     },
     register: function (req, res) {
-        res.render("register" );
+        res.render("register");
     },
     login: function (req, res) {
         res.render("login");
+    },
+    profile(req, res) {
+        res.render("profile");
     }
 }
 

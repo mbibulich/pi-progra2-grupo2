@@ -16,8 +16,14 @@ const controller = {
         if (productoEncontrado == false) {
             return res.send("Producto no encontrado");
         }
-        return res.render('product', {product: productoEncontrado});
+        return res.render('product', { product: productoEncontrado });
+    },
+
+    add: function(req,res){
+        res.render('product-add')
     }
+
+    
 }
 
 module.exports = controller;
