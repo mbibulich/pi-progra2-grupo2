@@ -9,4 +9,7 @@ router.get('/id/:id', productController.detalle);
 router.get('/add', productController.add);
 
 router.get('/edit', productController.edit);
+
+router.get('/search', productController.search);
+
 module.exports = router;

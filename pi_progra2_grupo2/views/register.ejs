@@ -7,7 +7,7 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/header') %>
+	<%- include('partials/headerNoLogeado') %>
 
 	<!-- /Header -->
 
@@ -18,7 +18,7 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="/users/register" method="GET" class="col-12 col-md-6">
+			<form action="/users/login" method="GET" class="col-12 col-md-6">
 				<div class="form-group">
 					<label for="name">Nombre:</label>
 					<input type="text" id="name" name="name" required>
