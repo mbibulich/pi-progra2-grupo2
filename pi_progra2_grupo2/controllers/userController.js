@@ -1,3 +1,4 @@
+
 const controller = {
     index: function (req, res) {
         res.send(usuarios.lista);

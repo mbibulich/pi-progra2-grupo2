@@ -19,14 +19,18 @@ const controller = {
         return res.render('product', { product: productoEncontrado });
     },
 
-    add: function(req,res){
+    add: function (req, res) {
         res.render('product-add')
     },
 
-    edit: function(req,res){
+    edit: function (req, res) {
         res.render('product-edit')
+    },
+
+    search: function (req, res) {
+        res.render('search-results')
     }
-    
+
 }
 
 module.exports = controller;
