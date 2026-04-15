@@ -6,8 +6,13 @@
 
 
 <body>
-	<!-- Header -->
-	<%- include('partials/headerNoLogeado') %>
+	<% if (login) { %>
+			<%- include('partials/headerNoLogeado') %>
+	 
+	<% } else { %>
+			<%- include('partials/headerNoLogeado') %>
+
+	<% } %>
 
 	<!-- /Header -->
 

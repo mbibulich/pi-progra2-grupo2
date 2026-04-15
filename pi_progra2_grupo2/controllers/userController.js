@@ -5,10 +5,10 @@ const controller = {
         return res.render("profile");
     },
     register: function (req, res) {
-        res.render("register");
+        res.render("register", {login:false});
     },
     login: function (req, res) {
-        res.render("login");
+        res.render("login",{login: false});
     },
     profile: function (req, res) {
         let usuario = data.usuario;
