@@ -27,7 +27,22 @@
 					</h2>
 				</div>
 			</div>
-
+			<!-- Show the "ultimos" products -->
+			<form action="/products/add" method="GET" class="col-12">
+				<div class="form-group">
+					<label for="imagen">Imagen (URL)</label>
+					<input type="text" id="imagen" name="imagen" class="form-control" placeholder="URL de la imagen" required>
+				</div>
+				<div class="form-group">
+					<label for="nombre">Nombre del producto</label>
+					<input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre del producto" required>
+				</div>
+				<div class="form-group">
+					<label for="descripcion">Descripción</label>
+					<textarea id="descripcion" name="descripcion" class="form-control" rows="5" placeholder="Descripción del producto" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary mt-3">Agregar producto</button>
+			</form>
 
 
 			<!-- footer -->
