@@ -1,7 +1,8 @@
+const data = require("../db/index");
 
 const controller = {
     index: function (req, res) {
-        res.send(usuarios.lista);
+        return res.render("profile");
     },
     register: function (req, res) {
         res.render("register");
@@ -9,8 +10,10 @@ const controller = {
     login: function (req, res) {
         res.render("login");
     },
-    profile(req, res) {
-        res.render("profile");
+    profile: function (req, res) {
+        let usuario = data.usuario;
+        let productosUsuario = data.lista;
+        return res.render("profile", {usuario: usuario, productos: productosUsuario});
     }
 }
 
