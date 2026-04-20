@@ -20,7 +20,8 @@ const controller = {
     },
 
     add: function (req, res) {
-        res.render('product-add')
+        let usuario = data.usuario;
+        res.render('product-add', {usuario: usuario})
     },
 
     edit: function (req, res) {
@@ -28,9 +29,10 @@ const controller = {
     },
 
     search: function (req, res) {
-        let nombreUsuario = data.usuario;
-        res.render('search-results', { products: data.lista, nombre: nombreUsuario});
+        let usuario = data.usuario;
+        res.render('search-results', { products: data.lista, usuario: usuario});
 }
 }
 
+/* modificacion */
 module.exports = controller;
