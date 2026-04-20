@@ -28,9 +28,8 @@ const controller = {
     },
 
     search: function (req, res) {
-        res.render('search-results')
-    }
-
+        res.render('search-results', { products: data.lista });
+}
 }
 
 module.exports = controller;
