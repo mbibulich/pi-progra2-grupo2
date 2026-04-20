@@ -28,7 +28,8 @@ const controller = {
     },
 
     search: function (req, res) {
-        res.render('search-results', { products: data.lista });
+        let nombreUsuario = data.usuario.nombre;
+        res.render('search-results', { products: data.lista, nombre: nombreUsuario});
 }
 }
 
