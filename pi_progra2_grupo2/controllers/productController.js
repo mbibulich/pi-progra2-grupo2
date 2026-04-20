@@ -28,7 +28,7 @@ const controller = {
     },
 
     search: function (req, res) {
-        let nombreUsuario = data.usuario.nombre;
+        let nombreUsuario = data.usuario;
         res.render('search-results', { products: data.lista, nombre: nombreUsuario});
 }
 }

@@ -13,7 +13,8 @@ const controller = {
     profile: function (req, res) {
         let usuario = data.usuario;
         let productosUsuario = data.lista;
-        return res.render("profile", {usuario: usuario, productos: productosUsuario});
+        let nombreUsuario = data.usuario.nombre;
+        return res.render("profile", {usuario: usuario, productos: productosUsuario, nombre: nombreUsuario});
     }
 }
 
