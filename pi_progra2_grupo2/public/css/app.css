@@ -10,7 +10,12 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Inter', sans-serif
+  --base-font-family: 'Inter', sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --mid-gray: #e0e0e0;
+  --dark-gray: #888888;
+  --text-gray: #444444;
 }
 
 /*====== Basics . ======*/
@@ -236,12 +241,27 @@ hr {
   display: block;
 }
 
+.product-box:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 .product-box:hover .product-box_image img {
   transform: scale(1.03);
 }
 
+.product-box:hover p {
+  height: 36px;
+  margin-top: 15px;
+}
+
+.product-box:hover i {
+  transform: rotate(360deg);
+  box-shadow: 0 0 5px var(--green);
+}
+
 .product-box_data {
   padding: 12px 4px;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -264,16 +284,30 @@ hr {
 
 .product-box_data p {
   font-size: 1.2em;
-  color: var(--dark-gray);
-  margin: 4px 0 0 0;
   width: 100%;
-  white-space: nowrap;
+  color: var(--dark-gray);
+  margin: 0;
+  height: 0;
+  transition: 300ms;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .product-box_data i {
-  display: none;
+  color: var(--green);
+  font-size: 1.8em;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
 }
 
 .noproducts {
@@ -624,7 +658,6 @@ textarea.form-input {
 .btn:hover {
   background-color: var(--text-gray);
 }
-
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
