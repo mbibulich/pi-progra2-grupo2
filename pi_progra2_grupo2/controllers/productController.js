@@ -34,5 +34,4 @@ const controller = {
 }
 }
 
-/* modificacion */
 module.exports = controller;
