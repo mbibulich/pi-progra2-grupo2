@@ -45,59 +45,67 @@ INSERT INTO usuarios VALUES (DEFAULT, 'Juan','juan@gmail.com', 'juan123','profil
 INSERT INTO usuarios VALUES (DEFAULT, 'Sofia','sofia@gmail.com', 'sofia123','profile-default.png');
 INSERT INTO usuarios VALUES (DEFAULT, 'Valen','valen@gmail.com', 'valen123','profile-default.png');
 INSERT INTO usuarios VALUES (DEFAULT, 'Caro','Caro@gmail.com', 'caro123','profile-default.png');
-INSERT INTO usuarios VALUES (DEFAULT, 'Ema','ema@gmail.com', 'ema123','profile-default.png')
+INSERT INTO usuarios VALUES (DEFAULT, 'Ema','ema@gmail.com', 'ema123','profile-default.png');
+
+/*------------------------------------------------PRODUCTOS--------------------------------------------------------*/
+INSERT INTO productos VALUES (1, 'Buzo Hoodie Oversize', 'Buzo con capucha y bolsillo canguro en color arena melange.', 4, 'buzo1.jpg');
+INSERT INTO productos VALUES (2, 'Buzo Quarter-Zip Auckland', 'Buzo gris con cuello alto, cierre medio y bordado frontal.', 1, 'buzo2.jpg');
+INSERT INTO productos VALUES (3, 'Jean Wide Leg Celeste', 'Pantalón de denim claro con corte ancho y lavado localizado.', 2, 'jeanHombre1.jpg');
+INSERT INTO productos VALUES (4, 'Jean Baggy Gris Oscuro', 'Pantalón de jean gris gastado con costuras decorativas.', 4, 'jeanHombre2.jpg');
+INSERT INTO productos VALUES (5, 'Jean Joya Wide Leg', 'Denim celeste decorado con apliques de strass en todo el frente.', 2, 'jeanMujer.jpg');
+INSERT INTO productos VALUES (6, 'Remera Boxy Fit Grafito', 'Remera gris oscuro con estampa tipo rock y terminaciones al corte.', 3, 'remera1.jpg');
+INSERT INTO productos VALUES (7, 'Remera Heavy Cotton Negra', 'Remera de algodón pesado con estampa gráfica en rojo y blanco.', 4, 'remera2.jpg');
+INSERT INTO productos VALUES (8, 'Short de Lino Negro', 'Pantalón corto de lino con cintura elástica y cordón ajustable.', 1, 'short1.jpg');
+INSERT INTO productos VALUES (9, 'Short de Lino Off-White', 'Short liviano en tono crudo con detalle de pinzas frontales.', 4, 'short2.jpg');
+INSERT INTO productos VALUES (10, 'Vestido Largo Halter', 'Vestido de fiesta negro con cuello halter y detalle de aro metálico.', 1, 'vestido.jpg');
 
 /*------------------------------------------------COMENTARIOS--------------------------------------------------------*/
 -- Producto 1: Buzo Hoodie Oversize
-INSERT INTO comentarios VALUES (DEFAULT, '1', '1', 'La tela es súper gruesa, muy abrigado.');
-INSERT INTO comentarios VALUES (DEFAULT, '1', '2', 'El corte oversize es perfecto, me encanta.');
-INSERT INTO comentarios VALUES (DEFAULT, '1', '3', 'El color arena es idéntico a las fotos.');
+INSERT INTO comentarios VALUES (DEFAULT, 1, 1, 'La tela es súper gruesa, muy abrigado.');
+INSERT INTO comentarios VALUES (DEFAULT, 1, 2, 'El corte oversize es perfecto, me encanta.');
+INSERT INTO comentarios VALUES (DEFAULT, 1, 3, 'El color arena es idéntico a las fotos.');
 
 -- Producto 2: Buzo Quarter-Zip Auckland
-INSERT INTO comentarios VALUES (DEFAULT, '2', '4', 'El cierre funciona perfecto, se ve muy elegante.');
-INSERT INTO comentarios VALUES (DEFAULT, '2', '5', 'Excelente calidad de los bordados frontales.');
-INSERT INTO comentarios VALUES (DEFAULT, '2', '1', 'Un básico que combina con todo, muy conforme.');
+INSERT INTO comentarios VALUES (DEFAULT, 2, 4, 'El cierre funciona perfecto, se ve muy elegante.');
+INSERT INTO comentarios VALUES (DEFAULT, 2, 5, 'Excelente calidad de los bordados frontales.');
+INSERT INTO comentarios VALUES (DEFAULT, 2, 2, 'Un básico que combina con todo, muy conforme.');
 
 -- Producto 3: Jean Wide Leg Celeste
-INSERT INTO comentarios VALUES (DEFAULT, '3', '2', 'El calce es muy cómodo y el tiro es alto.');
-INSERT INTO comentarios VALUES (DEFAULT, '3', '3', 'El lavado celeste es muy lindo para el día.');
-INSERT INTO comentarios VALUES (DEFAULT, '3', '4', 'Me quedó un poco largo, pero la calidad es 10/10.');
+INSERT INTO comentarios VALUES (DEFAULT, 3, 5, 'El calce es muy cómodo y el tiro es alto.');
+INSERT INTO comentarios VALUES (DEFAULT, 3, 3, 'El lavado celeste es muy lindo para el día.');
+INSERT INTO comentarios VALUES (DEFAULT, 3, 4, 'Me quedó un poco largo, pero la calidad es 10/10.');
 
 -- Producto 4: Jean Baggy Gris Oscuro
-INSERT INTO comentarios VALUES (DEFAULT, '4', '5', 'El color gris gastado se ve muy canchero.');
-INSERT INTO comentarios VALUES (DEFAULT, '4', '1', 'Las costuras decorativas le dan un toque especial.');
-INSERT INTO comentarios VALUES (DEFAULT, '4', '2', 'Tela resistente, se nota que va a durar mucho.');
+INSERT INTO comentarios VALUES (DEFAULT, 4, 5, 'El color gris gastado se ve muy canchero.');
+INSERT INTO comentarios VALUES (DEFAULT, 4, 1, 'Las costuras decorativas le dan un toque especial.');
+INSERT INTO comentarios VALUES (DEFAULT, 4, 2, 'Tela resistente, se nota que va a durar mucho.');
 
 -- Producto 5: Jean Joya Wide Leg
-INSERT INTO comentarios VALUES (DEFAULT, '5', '3', 'Los apliques de strass brillan un montón.');
-INSERT INTO comentarios VALUES (DEFAULT, '5', '4', 'Es la prenda estrella de mi placard ahora.');
-INSERT INTO comentarios VALUES (DEFAULT, '5', '5', 'Lo usé para salir y recibí mil cumplidos.');
+INSERT INTO comentarios VALUES (DEFAULT, 5, 3, 'Los apliques de strass brillan un montón.');
+INSERT INTO comentarios VALUES (DEFAULT, 5, 4, 'Es la prenda estrella de mi placard ahora.');
+INSERT INTO comentarios VALUES (DEFAULT, 5, 5, 'Lo usé para salir y recibí mil cumplidos.');
 
 -- Producto 6: Remera Boxy Fit Grafito
-INSERT INTO comentarios VALUES (DEFAULT, '6', '1', 'La estampa tipo rock está muy bien lograda.');
-INSERT INTO comentarios VALUES (DEFAULT, '6', '2', 'El corte boxy queda muy bien con jeans anchos.');
-INSERT INTO comentarios VALUES (DEFAULT, '6', '3', 'Algodón de buena calidad, no se achicó al lavar.');
+INSERT INTO comentarios VALUES (DEFAULT, 6, 1, 'La estampa tipo rock está muy bien lograda.');
+INSERT INTO comentarios VALUES (DEFAULT, 6, 2, 'El corte boxy queda muy bien con jeans anchos.');
+INSERT INTO comentarios VALUES (DEFAULT, 6, 4, 'Algodón de buena calidad, no se achicó al lavar.');
 
 -- Producto 7: Remera Heavy Cotton Negra
-INSERT INTO comentarios VALUES (DEFAULT, '7', '4', 'El algodón pesado se siente premium.');
-INSERT INTO comentarios VALUES (DEFAULT, '7', '5', 'Los colores de la estampa son muy vibrantes.');
-INSERT INTO comentarios VALUES (DEFAULT, '7', '1', 'Excelente relación precio-calidad.');
+INSERT INTO comentarios VALUES (DEFAULT, 7, 2, 'El algodón pesado se siente premium.');
+INSERT INTO comentarios VALUES (DEFAULT, 7, 5, 'Los colores de la estampa son muy vibrantes.');
+INSERT INTO comentarios VALUES (DEFAULT, 7, 1, 'Excelente relación precio-calidad.');
 
 -- Producto 8: Short de Lino Negro
-INSERT INTO comentarios VALUES (DEFAULT, '8', '2', 'Súper fresco, ideal para los días de calor.');
-INSERT INTO comentarios VALUES (DEFAULT, '8', '3', 'La cintura elástica lo hace muy cómodo.');
-INSERT INTO comentarios VALUES (DEFAULT, '8', '4', 'El cordón ajustable es muy práctico.');
+INSERT INTO comentarios VALUES (DEFAULT, 8, 2, 'Súper fresco, ideal para los días de calor.');
+INSERT INTO comentarios VALUES (DEFAULT, 8, 3, 'La cintura elástica lo hace muy cómodo.');
+INSERT INTO comentarios VALUES (DEFAULT, 8, 4, 'El cordón ajustable es muy práctico.');
 
 -- Producto 9: Short de Lino Off-White
-INSERT INTO comentarios VALUES (DEFAULT, '9', '5', 'El tono crudo es muy fino y fácil de combinar.');
-INSERT INTO comentarios VALUES (DEFAULT, '9', '1', 'Las pinzas frontales le dan un toque formal.');
-INSERT INTO comentarios VALUES (DEFAULT, '9', '2', 'No trasluce nada, que era mi mayor miedo.');
+INSERT INTO comentarios VALUES (DEFAULT, 9, 5, 'El tono crudo es muy fino y fácil de combinar.');
+INSERT INTO comentarios VALUES (DEFAULT, 9, 1, 'Las pinzas frontales le dan un toque formal.');
+INSERT INTO comentarios VALUES (DEFAULT, 9, 2, 'No trasluce nada, que era mi mayor miedo.');
 
 -- Producto 10: Vestido Largo Halter
-INSERT INTO comentarios VALUES (DEFAULT, '10', '3', 'El detalle del aro metálico es hermoso.');
-INSERT INTO comentarios VALUES (DEFAULT, '10', '4', 'Me quedó pintado, la tabla de talles es precisa.');
-INSERT INTO comentarios VALUES (DEFAULT, '10', '5', 'La caída de la tela es espectacular.');
-
-
-
-
+INSERT INTO comentarios VALUES (DEFAULT, 10, 3, 'El detalle del aro metálico es hermoso.');
+INSERT INTO comentarios VALUES (DEFAULT, 10, 4, 'Me quedó pintado, la tabla de talles es precisa.');
+INSERT INTO comentarios VALUES (DEFAULT, 10, 5, 'La caída de la tela es espectacular.');
