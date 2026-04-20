@@ -108,4 +108,4 @@ INSERT INTO comentarios VALUES (DEFAULT, 9, 2, 'No trasluce nada, que era mi may
 -- Producto 10: Vestido Largo Halter
 INSERT INTO comentarios VALUES (DEFAULT, 10, 3, 'El detalle del aro metálico es hermoso.');
 INSERT INTO comentarios VALUES (DEFAULT, 10, 4, 'Me quedó pintado, la tabla de talles es precisa.');
-INSERT INTO comentarios VALUES (DEFAULT, 10, 5, 'La caída de la tela es espectacular.');
+INSERT INTO comentarios VALUES (DEFAULT, 10, 5, 'La caída de la tela es espectacular.')
