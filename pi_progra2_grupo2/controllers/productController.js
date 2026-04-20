@@ -20,7 +20,8 @@ const controller = {
     },
 
     add: function (req, res) {
-        res.render('product-add')
+        let usuario = data.usuario;
+        res.render('product-add', {usuario: usuario})
     },
 
     edit: function (req, res) {
