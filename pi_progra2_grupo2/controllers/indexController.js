@@ -2,7 +2,8 @@ const data = require("../db/index");
 
 const controller = {
     index: function (req, res) {
-         return  res.render('index', {products: data.lista});
+        let usuario = data.usuario;
+        return  res.render('index', {products: data.lista, usuario: usuario});
     }
 }
 

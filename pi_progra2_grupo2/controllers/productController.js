@@ -5,6 +5,7 @@ const controller = {
     },
 
     detalle: function (req, res) {
+        let usuario = data.usuario;
         let id = req.params.id;
         let productoEncontrado = false;
         for (let i = 0; i < data.lista.length; i++) {
@@ -16,7 +17,7 @@ const controller = {
         if (productoEncontrado == false) {
             return res.send("Producto no encontrado");
         }
-        return res.render('product', { product: productoEncontrado });
+        return res.render('product', { product: productoEncontrado, usuario: usuario });
     },
 
     add: function (req, res) {
