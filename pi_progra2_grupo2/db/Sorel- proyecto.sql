@@ -66,7 +66,7 @@ INSERT INTO productos ( nombre, descripcion, idUsuario, fotoProducto) VALUES ( '
 -- Producto 1: Buzo Hoodie Oversize
 INSERT INTO comentarios (idProducto, idUsuario, comentario) VALUES (1, 1, 'La tela es súper gruesa, muy abrigado.');
 INSERT INTO comentarios (idProducto, idUsuario, comentario) VALUES (1, 2, 'El corte oversize es perfecto, me encanta.');
-INSERT INTO comentarios (idroducto, idUsuario, comentario) VALUES (1, 3, 'El color arena es idéntico a las fotos.');
+INSERT INTO comentarios (idProducto, idUsuario, comentario) VALUES (1, 3, 'El color arena es idéntico a las fotos.');
 
 -- Producto 2: Buzo Quarter-Zip Auckland
 INSERT INTO comentarios (idProducto, idUsuario, comentario) VALUES (2, 4, 'El cierre funciona perfecto, se ve muy elegante.');
