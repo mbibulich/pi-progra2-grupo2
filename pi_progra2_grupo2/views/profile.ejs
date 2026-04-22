@@ -5,8 +5,13 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/headerLogeado') %>
+	<% if (logueado) { %>
+		<%- include('partials/headerLogeado') %>
 
+	<% } else { %>
+		<%- include('partials/headerNoLogeado') %>
+
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->

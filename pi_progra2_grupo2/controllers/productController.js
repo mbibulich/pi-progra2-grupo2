@@ -18,12 +18,12 @@ const controller = {
         if (productoEncontrado == false) {
             return res.send("Producto no encontrado");
         }
-        return res.render('product', { product: productoEncontrado, usuario: usuario });
+        return res.render('product', { product: productoEncontrado, usuario: usuario, logueado: true });
     },
 
     add: function (req, res) {
         let usuario = data.usuario;
-        res.render('product-add', {usuario: usuario})
+        res.render('product-add', {usuario: usuario, logueado: true})
     },
 
     edit: function (req, res) {
@@ -32,7 +32,7 @@ const controller = {
 
     search: function (req, res) {
         let usuario = data.usuario;
-        res.render('search-results', { products: data.lista, usuario: usuario});
+        res.render('search-results', { products: data.lista, usuario: usuario, logueado: true});
 }
 }
 

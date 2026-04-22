@@ -6,7 +6,15 @@
 
 <body>
 	<!-- Header -->
-<%- include('partials/headerNoLogeado') %>
+
+<% if (logueado) { %>
+	<%- include('partials/headerLogeado') %>
+
+<% } else { %>
+	<%- include('partials/headerNoLogeado') %>
+
+<% } %>
+
 	<!-- /Header -->
 
 	<!-- Banner -->
