@@ -1,9 +1,6 @@
 const data = require("../db/index");
 
 const controller = {
-    index: function (req, res) {
-        return res.render("profile");
-    },
     register: function (req, res) {
         res.render("register", {logueado:false});
     },
