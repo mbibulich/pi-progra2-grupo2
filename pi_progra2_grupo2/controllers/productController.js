@@ -29,8 +29,8 @@ const controller = {
                 if (!producto) {
                     return res.send("Producto no encontrado")
                 }
-                return res.render('product', { product: producto, logueado: true, usuario: { nombre: "Juan", fotoPerfil: "profile-default.png" } })
-            })                                                    // paso logueado y usuario asi para que no me de error por ahora
+                return res.render('product', { product: producto})
+            })                                                    
             .catch(function (error) {
                 return res.send(error)
             })
