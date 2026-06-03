@@ -18,19 +18,21 @@ const controller = {
     },
 
     detalle: function (req, res) {
-        let usuario = data.usuario;
-        let id = req.params.id;
-        let productoEncontrado = false;
-        for (let i = 0; i < data.lista.length; i++) {
-            if (id == data.lista[i].id) {
-                productoEncontrado = data.lista[i];
-                break;
+        db.Producto.findByPk(req.params.id, {
+            include: [
+                {association: "comentarios",
+                    include: [{ association: "usuario" }]
+                 }]
+        })
+        .then(function (producto) {
+            if (!producto) {
+                return res.send("Producto no encontrado")
             }
-        }
-        if (productoEncontrado == false) {
-            return res.send("Producto no encontrado");
-        }
-        return res.render('product', { product: productoEncontrado, usuario: usuario, logueado: true });
+            return res.render('product', { product: producto, logueado: true, usuario: { nombre: "Juan", fotoPerfil: "profile-default.png" } })
+        })                                                    // paso logueado y usuario asi para que no me de error por ahora
+        .catch(function (error) {
+            return res.send(error)
+        })
     },
 
     add: function (req, res) {
