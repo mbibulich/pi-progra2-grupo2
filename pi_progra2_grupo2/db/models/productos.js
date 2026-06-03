@@ -14,7 +14,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING(500)
         },
         idUsuario: {
-            type: dataTypes.INTEGER // Foreign Key
+            type: dataTypes.INTEGER // Foreign Key.
         },
         fotoProducto: {
             type: dataTypes.STRING(500)
