@@ -1,8 +1,20 @@
-const data = require("../db/index");
+const db = require('../db/models')
+const op = db.Sequelize.Op
+
 const controller = {
     index: function (req, res) {
-        let usuario = data.usuario;
-        return res.render('products', { products: data.lista, usuario: usuario});
+        db.Producto.findAll({ 
+            include: [
+                { association: "comentarios" },
+                { association: "usuario" } 
+            ]
+        })
+        .then(function (resultados) {
+           return res.render("index", { productos: resultados })
+        })
+        .catch(function (error) {
+            return res.send(error);
+        })
     },
 
     detalle: function (req, res) {
