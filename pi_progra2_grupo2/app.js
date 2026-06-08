@@ -32,13 +32,20 @@ app.use(session({
 
 // middleware de session 
 app.use(function(req, res, next) {
-	if (req.session.usuarioLogueado != undefined) {
-		res.locals.user = req.session.usuarioLogueado	
+	if (req.session.user != undefined) {
+		res.locals.user = req.session.user	
      }
   return next();
 });
 
 // middleware de cookie
+app.use(function(req, res, next) {
+  if (req.session.user != undefined && req.cookies.user) {
+		res.session.user = req.cookies.user
+     }
+  return next();
+})
+
 
 // rutas
 app.use('/', indexRouter);

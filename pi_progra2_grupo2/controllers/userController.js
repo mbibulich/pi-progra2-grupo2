@@ -1,4 +1,4 @@
-const data = require("../db/models");
+const db = require("../db/models");
 
 const controller = {
     register: function (req, res) {
@@ -20,6 +20,11 @@ const controller = {
             })
     },
     login: function (req, res) {
+        if (req.session.user != undefined){
+            return res.redirect('/')
+        } else{
+            return res.render('login')
+        }
         return res.render("login",{logueado: false});
     },
     processLogin: function(req, res){
@@ -28,12 +33,15 @@ const controller = {
             where: [{ email: emailLog }]
         })
         .then(function (user) {
-                let check = bcrypt.compareSync(req.body.password, user.password)
                 if (user == null) {
                     return res.send('no existe el usuario')
                 }
-                else if (check) {
+                let check = bcrypt.compareSync(req.body.password, user.contrasena)
+                if (check) {
                     req.session.user = user
+                    if (req.body.remember != undefined){
+                        res.cookie('user', user, {maxAge: 1000 * 60 * 5})
+                    }
                     return res.redirect("/")
                 }
                  else {
@@ -44,6 +52,13 @@ const controller = {
                 return res.send(error);
             })
     },
+
+    logout: function(req, res){
+        req.session.destroy()
+        res.clearcookie('')
+    },
+
+
     profile: function (req, res) {
         let usuario = data.usuario;
         let productosUsuario = data.lista;
