@@ -86,7 +86,7 @@ const controller = {
     delete: function (req, res) {
         db.Producto.findByPk(req.params.id)
             .then(function (resultado) {
-                return res.render("eliminar", { user: resultado });
+                return res.render("product-edit", { product: resultado });
             })
             .catch(function (error) {
                 return res.send(error);
