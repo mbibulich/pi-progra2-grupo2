@@ -19,8 +19,6 @@ const controller = {
                 return res.send(error);
             })
     },
-
-
     login: function (req, res) {
         return res.render("login",{logueado: false});
     },
@@ -29,7 +27,6 @@ const controller = {
         db.User.findOne({
             where: [{ email: emailLog }]
         })
-
         .then(function (user) {
                 let check = bcrypt.compareSync(req.body.password, user.password)
                 if (user == null) {
@@ -47,8 +44,6 @@ const controller = {
                 return res.send(error);
             })
     },
-
-
     profile: function (req, res) {
         let usuario = data.usuario;
         let productosUsuario = data.lista;

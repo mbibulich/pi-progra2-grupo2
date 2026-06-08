@@ -23,7 +23,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // session
 app.use(session({
   secret: "Nuestro mensaje secreto",
@@ -31,15 +30,17 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// middleware de session 
 app.use(function(req, res, next) {
 	if (req.session.usuarioLogueado != undefined) {
 		res.locals.user = req.session.usuarioLogueado	
      }
-return next();
+  return next();
 });
 
+// middleware de cookie
 
-
+// rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productRouter);
