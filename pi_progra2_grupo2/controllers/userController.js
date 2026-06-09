@@ -1,13 +1,20 @@
 const db = require("../db/models");
+const bcrypt = require('bcryptjs');
+const { validationResult } = require("express-validator");
 
 const controller = {
     register: function (req, res) {
         res.render("register", {logueado:false});
     },
     processRegister: function(req, res) {
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            // No hay errores, seguimos adelante
+            return res.send(errors.mapped());
+        }
         let form = req.body
         let passEncriptada = bcrypt.hashSync(form.password, 10)
-        db.User.create({
+        db.Usuario.create({
             nombre: form.name,
             email: form.email,
             contrasena: passEncriptada
@@ -29,7 +36,7 @@ const controller = {
     },
     processLogin: function(req, res){
         let emailLog = req.body.email
-        db.User.findOne({
+        db.Usuario.findOne({
             where: [{ email: emailLog }]
         })
         .then(function (user) {
@@ -52,13 +59,10 @@ const controller = {
                 return res.send(error);
             })
     },
-
     logout: function(req, res){
         req.session.destroy()
         res.clearcookie('')
     },
-
-
     profile: function (req, res) {
         let usuario = data.usuario;
         let productosUsuario = data.lista;

@@ -4,15 +4,13 @@
 <%- include('partials/head') %>
 
 <body>
-	<!-- Header -->
-	<% if (logueado) { %>
-		<%- include('partials/headerLogeado') %>
-
-	<% } else { %>
-		<%- include('partials/headerNoLogeado') %>
-
-	<% } %>
-	<!-- /Header -->
+<!-- Header -->
+<% if (locals.user != null) { %>
+	<%- include('partials/headerLogeado') %>
+<% } else { %>
+	<%- include('partials/headerNoLogeado') %>
+<% } %>
+<!-- /Header -->
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">

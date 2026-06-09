@@ -1,19 +1,11 @@
 
 <%- include('partials/head') %>
-
-
-
-<% if (logueado) { %>
-<%- include('partials/headerLogeado') %>
-
-
+<!-- Header -->
+<% if (locals.user != null) { %>
+	<%- include('partials/headerLogeado') %>
 <% } else { %>
-<%- include('partials/headerNoLogeado') %>
-
-
+	<%- include('partials/headerNoLogeado') %>
 <% } %>
-
-
 <!-- /Header -->
 
 <!-- Banner -->

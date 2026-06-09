@@ -5,10 +5,13 @@
 <%- include('partials/head') %>
 
 <body>
-	<!-- Header -->
-<%- include('partials/headerLogeado') %>
-
-	<!-- /Header -->
+<!-- Header -->
+<% if (locals.user != null) { %>
+	<%- include('partials/headerLogeado') %>
+<% } else { %>
+	<%- include('partials/headerNoLogeado') %>
+<% } %>
+<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
