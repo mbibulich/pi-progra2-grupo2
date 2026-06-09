@@ -10,7 +10,7 @@ const controller = {
                 ]
             })
             .then(function (resultados) {
-               return res.render("index", { product: resultados, logueado: false})
+               return res.render("index", { product: resultados})
             })
             .catch(function (error) {
                 return res.send(error);

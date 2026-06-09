@@ -37,7 +37,7 @@ const controller = {
     },
 
     add: function (req, res) {
-        res.render('product-add', { logueado: true, usuario: { nombre: "Juan", fotoPerfil: "profile-default.png" } })
+        res.render('product-add')
     },
 
     addProduct: function (req, res) {
@@ -122,7 +122,7 @@ const controller = {
             ]
         })
             .then(function (resultados) {
-                return res.render("search-results", { product: resultados, logueado: true, usuario: { nombre: "Juan", fotoPerfil: "profile-default.png" } });
+                return res.render("search-results", { product: resultados });
             })
             .catch(function (error) {
                 return res.send(error);
@@ -131,3 +131,4 @@ const controller = {
 }
 
 module.exports = controller;
+
