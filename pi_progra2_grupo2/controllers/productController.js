@@ -62,6 +62,9 @@ const controller = {
     },
 
     edit: function (req, res) {
+         if (req.session.user == undefined) {
+         return res.redirect("/users/login");
+         }
          db.Producto.findByPk(req.params.id)
             .then(function (resultado) {
                 return res.render("product-edit", { product: resultado });
@@ -90,6 +93,9 @@ const controller = {
     },
 
     delete: function (req, res) {
+        if (req.session.user == undefined) {
+        return res.redirect("/users/login");
+    }
         db.Producto.findByPk(req.params.id)
             .then(function (resultado) {
                 return res.render("product-edit", { product: resultado });
@@ -133,6 +139,24 @@ const controller = {
             .catch(function (error) {
                 return res.send(error);
             });
+
+    },
+    
+    addComentario: function (req, res) {
+    if (req.session.user == undefined) {
+        return res.redirect("/users/login")
+    }
+    db.Comentario.create({
+        comentario: req.body.comentario,
+        idUsuario: req.session.user.id,
+        idProducto: req.params.id
+    })
+        .then(function() {
+        return res.redirect("/products/id/" + req.params.id)
+        })
+        .catch(function(error) {
+        return res.send(error)
+        })
     }
 }
 

@@ -20,7 +20,7 @@ const controller = {
             contrasena: passEncriptada
         })
             .then(function (user) {
-                return res.redirect('/')
+                return res.redirect('/users/login')
             })
             .catch(function (error) {
                 return res.send(error);

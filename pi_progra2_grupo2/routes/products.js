@@ -17,4 +17,7 @@ router.post('/eliminar/:id', productController.deleteProduct)
 
 router.get('/search', productController.search);
 
+router.post('/id/:id/comentario', productController.addComentario);
+
+
 module.exports = router;
