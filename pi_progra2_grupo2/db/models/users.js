@@ -30,13 +30,13 @@ module.exports = function (sequelize, dataTypes) {
 
     // Relaciones
     Usuario.associate = function(models) {
-        // Un usuario tiene muchos productos (1:N)
+        // Un usuario tiene muchos productos 
         Usuario.hasMany(models.Producto, {
             as: "productos",
             foreignKey: "idUsuario"
         });
         
-        // Un usuario tiene muchos comentarios (1:N)
+        // Un usuario tiene muchos comentarios 
         Usuario.hasMany(models.Comentario, {
             as: "comentarios",
             foreignKey: "idUsuario"

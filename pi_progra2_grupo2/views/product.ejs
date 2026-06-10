@@ -6,7 +6,7 @@
 
 <body>
 <!-- Header -->
-<% if (locals.user != null) { %>
+<% if (locals.user != undefined) { %>
 	<%- include('partials/headerLogeado') %>
 <% } else { %>
 	<%- include('partials/headerNoLogeado') %>
@@ -35,11 +35,11 @@
 								<% if (product.comentarios.length> 0) { %>
 									<% for (let i=0; i < product.comentarios.length; i++) { %>
 										<article>
-											<img src="/images/users/<%= product.comentarios[i].usuario.fotoPerfil %>" alt="">
+											<img src="/images/users/<%= product.comentarios[i].usuario.fotoPerfil %>" alt="<%= product.comentarios[i].usuario.nombre %>">
 
 											<div class="data">
 												<p class="user">
-													<strong> <a href="/users/profile">
+													<strong> <a href="/users/profile/id/<%= product.comentarios[i].usuario.id %>">
 															<%= product.comentarios[i].usuario.nombre %>:
 														</a> </strong>
 													<%= product.comentarios[i].comentario %>

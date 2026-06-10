@@ -30,6 +30,14 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// middleware de cookie
+app.use(function(req, res, next) {
+  if (req.session.user == undefined && req.cookies.user !=undefined) {
+		req.session.user = req.cookies.user
+     }
+  return next();
+})
+
 // middleware de session 
 app.use(function(req, res, next) {
 	if (req.session.user != undefined) {
@@ -37,15 +45,6 @@ app.use(function(req, res, next) {
      }
   return next();
 });
-
-// middleware de cookie
-app.use(function(req, res, next) {
-  if (req.session.user != undefined && req.cookies.user) {
-		res.session.user = req.cookies.user
-     }
-  return next();
-})
-
 
 // rutas
 app.use('/', indexRouter);

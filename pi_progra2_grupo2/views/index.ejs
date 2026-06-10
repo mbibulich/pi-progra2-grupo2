@@ -1,10 +1,10 @@
 
 <%- include('partials/head') %>
 <!-- Header -->
-<% if (locals.user != null) { %>
-	<%- include('partials/headerLogeado') %>
+<% if (locals.user) { %>
+    <%- include('partials/headerLogeado') %>
 <% } else { %>
-	<%- include('partials/headerNoLogeado') %>
+    <%- include('partials/headerNoLogeado') %>
 <% } %>
 <!-- /Header -->
 

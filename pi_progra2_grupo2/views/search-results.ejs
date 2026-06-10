@@ -7,7 +7,7 @@
 
 <body>
 <!-- Header -->
-<% if (locals.user != null) { %>
+<% if (locals.user != undefined) { %>
 	<%- include('partials/headerLogeado') %>
 <% } else { %>
 	<%- include('partials/headerNoLogeado') %>

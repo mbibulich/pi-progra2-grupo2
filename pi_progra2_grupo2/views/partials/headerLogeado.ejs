@@ -29,10 +29,10 @@
 				</ul>
 				<ul class="right-navbar">
 					<li>
-						<a href="/users/profile"> <%=locals.user.nombre%> <i class="fas fa-user"></i></a>
+						<a href="/users/profile/id/<%=locals.user.id%>"> <%=locals.user.nombre%> <i class="fas fa-user"></i></a>
 					</li>
 					<li>
-						<form action="/" method="get">
+						<form action="/users/logout" method="get">
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>

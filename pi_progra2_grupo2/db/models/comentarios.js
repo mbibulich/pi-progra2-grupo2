@@ -28,13 +28,13 @@ module.exports = function (sequelize, dataTypes) {
 
     // Relaciones
     Comentario.associate = function(models) {
-        // Un comentario pertenece a un producto (N:1)
+        // Un comentario pertenece a un producto
         Comentario.belongsTo(models.Producto, {
-            as: "producto",
+            as: "productos",
             foreignKey: "idProducto"
         });
         
-        // Un comentario pertenece a un usuario (N:1)
+        // Un comentario pertenece a un usuario 
         Comentario.belongsTo(models.Usuario, {
             as: "usuario",
             foreignKey: "idUsuario"

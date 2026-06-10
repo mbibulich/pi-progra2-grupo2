@@ -41,15 +41,21 @@ const controller = {
     },
 
     addProduct: function (req, res) {
-        db.User.create({
+
+        if (req.session.user == undefined) {
+            return res.redirect('/users/login');
+        }
+    
+        db.Producto.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            foto: req.body.fotoProducto
+            fotoProducto: req.body.fotoProducto,
+            idUsuario: req.session.user.id
         })
             .then(function (resultado) {
-
-                return res.redirect('/profile');
+                return res.redirect('/users/profile/id/'+req.session.user.id);
             })
+
             .catch(function (error) {
                 return res.send(error);
             });

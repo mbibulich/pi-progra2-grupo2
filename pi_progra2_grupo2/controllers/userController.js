@@ -4,9 +4,9 @@ const { validationResult } = require("express-validator");
 
 const controller = {
     register: function (req, res) {
-        res.render("register", {logueado:false});
+        res.render("register", { logueado: false });
     },
-    processRegister: function(req, res) {
+    processRegister: function (req, res) {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             // No hay errores, seguimos adelante
@@ -27,31 +27,30 @@ const controller = {
             })
     },
     login: function (req, res) {
-        if (req.session.user != undefined){
+        if (req.session.user != undefined) {
             return res.redirect('/')
-        } else{
+        } else {
             return res.render('login')
         }
-        return res.render("login",{logueado: false});
     },
-    processLogin: function(req, res){
+    processLogin: function (req, res) {
         let emailLog = req.body.email
         db.Usuario.findOne({
-            where: [{ email: emailLog }]
+            where: { email: emailLog }
         })
-        .then(function (user) {
-                if (user == null) {
+            .then(function (user) {
+                if (user == undefined) {
                     return res.send('no existe el usuario')
                 }
                 let check = bcrypt.compareSync(req.body.password, user.contrasena)
                 if (check) {
                     req.session.user = user
-                    if (req.body.remember != undefined){
-                        res.cookie('user', user, {maxAge: 1000 * 60 * 5})
+                    if (req.body.remember != undefined) {
+                        res.cookie('user', user, { maxAge: 1000 * 60 * 5 })
                     }
                     return res.redirect("/")
                 }
-                 else {
+                else {
                     return res.send('contrasena incorrecta')
                 }
             })
@@ -59,15 +58,33 @@ const controller = {
                 return res.send(error);
             })
     },
-    logout: function(req, res){
+    logout: function (req, res) {
         req.session.destroy()
-        res.clearcookie('')
+        res.clearCookie('user')
+        return res.redirect('/'); 
     },
+
     profile: function (req, res) {
-        let usuario = data.usuario;
-        let productosUsuario = data.lista;
-        return res.render("profile", {usuario: usuario, productos: productosUsuario, logueado: true});
+        db.Usuario.findByPk(req.params.id, {
+            include: [
+                {
+                    association: "productos",
+                    include: [{ association: "comentarios" }]
+                }]
+        })
+            .then(function (usuario) {
+
+                return res.render('profile', { usuario: usuario })
+            })
+            .catch(function (error) {
+                return res.send(error.message);
+                return res.send(error)
+
+            })
     }
 }
+
+
+
 
 module.exports = controller;
