@@ -21,7 +21,6 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%= usuario.nombre %></h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				<div>
 					<ul class="">
@@ -37,7 +36,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Mis productos</h2>
+				<h2 class="products-title">Mis productos (<%= usuario.productos.length %>)</h2>
 			</div>
 
 			<% if (usuario.productos.length > 0) { %>
@@ -64,7 +63,6 @@
 		</div>
 	</div>
 	<!-- /Mis productos -->
-
 
 	<!-- footer -->
 	<%- include('partials/footer') %>

@@ -19,6 +19,12 @@
 				<div class="d-flex align-items-center">
 					<h2 class="products-title">
 						<%= product.nombre%>
+						<% if (locals.user != undefined && locals.user.id == product.idUsuario) { %>
+						<a href="/products/<%= product.idProducto %>/edit" class="btn btn-secondary">Editar Producto</a>
+						<form action="/products/<%= product.idProducto %>/eliminar" method="POST" class="d-inline">
+							<button type="" class="btn btn-danger">Eliminar Producto</button>
+						</form>
+						<% } %>
 					</h2>
 				</div>
 				<div class="product-detail">
@@ -28,6 +34,7 @@
 							<p class="product-detail-description">
 								<%= product.descripcion %>
 							</p>
+							<p class="product-detail-publisher">Publicado por: <%= product.usuario.nombre %></p>
 						</article>
 
 						<div class="col-12 col-lg-4">

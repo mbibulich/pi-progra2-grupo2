@@ -172,7 +172,7 @@ hr {
   text-transform: uppercase;
   font-weight: 400;
   font-family: var(--base-font-family);
-  padding: 0;
+  padding: 5px 0;
 }
 
 .logout:hover {
@@ -492,23 +492,39 @@ hr {
   padding-bottom: 15px;
   border-bottom: 1px solid var(--mid-gray);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .comments img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .comments .data {
-  width: 85%;
+  flex: 1;
+  min-width: 0;
+}
+
+/* La columna de comentarios vuelve al flujo normal de la grilla
+   (anula el .col-12 global pensado para los formularios) */
+.product-detail .col-12.col-lg-4 {
+  display: block;
+  width: 100%;
+}
+
+.comments {
+  overflow: hidden;
 }
 
 .comments p {
   font-size: 1.4em;
   margin-top: 4px;
   color: var(--text-gray);
+  overflow-wrap: break-word;
 }
 
 .comments .user {
@@ -709,4 +725,63 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
+}
+
+/*====== Botones del detalle de producto (Editar / Eliminar) ======*/
+.products-title {
+  display: flex;
+  align-items: center;
+}
+
+.products-title .btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.85em;
+  padding: 8px 20px;
+  margin-left: 12px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+/* Empuja los botones hacia la derecha (el primero arrastra al resto) */
+.products-title .btn-secondary {
+  margin-left: auto;
+}
+
+/* "Eliminar" en estilo outline para diferenciarlo, manteniendo la paleta blanco/negro */
+.products-title .btn-danger {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.products-title .btn-danger:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/*====== "Publicado por" entre la foto y la descripción ======*/
+/* Reordeno visualmente el contenido: imagen -> publicado por -> descripción */
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail-img {
+  order: 1;
+}
+
+.product-detail-publisher {
+  order: 2;
+  margin: 12px 0;
+  font-size: 1.3em;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark-gray);
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.product-detail-description {
+  order: 3;
 }
