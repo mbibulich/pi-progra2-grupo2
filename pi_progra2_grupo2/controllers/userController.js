@@ -17,7 +17,8 @@ const controller = {
         db.Usuario.create({
             nombre: form.name,
             email: form.email,
-            contrasena: passEncriptada
+            contrasena: passEncriptada,
+            fotoPerfil: 'profile-default.png'
         })
             .then(function (user) {
                 return res.redirect('/users/login')

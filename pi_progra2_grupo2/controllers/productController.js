@@ -23,7 +23,11 @@ const controller = {
                 {
                     association: "comentarios",
                     include: [{ association: "usuario" }]
-                }]
+                },
+                { 
+                    association: "usuario" 
+                }
+            ]
         })
             .then(function (producto) {
                 if (!producto) {
@@ -76,45 +80,41 @@ const controller = {
 
     editProduct: function (req, res) {
         db.Producto.update({
+            fotoProducto: req.body.fotoProducto,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            foto: req.body.fotoProducto
         }, {
             where: {
-                id: req.params.id
+                idProducto: req.params.id
             }
         })
             .then(function (resultado) {
-                return res.redirect('/');
+                return res.redirect('/users/profile/id/' + req.session.user.id);
             })
             .catch(function (error) {
                 return res.send(error);
             });
     },
-
-    delete: function (req, res) {
-        if (req.session.user == undefined) {
-        return res.redirect("/users/login");
-    }
-        db.Producto.findByPk(req.params.id)
-            .then(function (resultado) {
-                return res.render("product-edit", { product: resultado });
-            })
-            .catch(function (error) {
-                return res.send(error);
-            });
-    },
-
     deleteProduct: function (req, res) {
-        db.Producto.destroy({
+        db.Comentario.destroy({
             where: {
-                id: req.params.id
+                idProducto: req.params.id
             }
         })
-            .then(function (resultado) {
-                return res.redirect('/profile');
+            .then(function() {
+                db.Producto.destroy({
+                    where: {
+                        idProducto: req.params.id
+                    }
+                })
+                .then(function() {
+                    return res.redirect('/users/profile/id/' + req.session.user.id);
+                })
+                .catch(function(error) {
+                    return res.send(error);
+                });
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 return res.send(error);
             });
     },
