@@ -41,14 +41,15 @@ const controller = {
     },
 
     add: function (req, res) {
-        res.render('product-add')
-    },
-
-    addProduct: function (req, res) {
 
         if (req.session.user == undefined) {
             return res.redirect('/users/login');
         }
+
+        res.render('product-add')
+    },
+
+    addProduct: function (req, res) {
     
         db.Producto.create({
             nombre: req.body.nombre,

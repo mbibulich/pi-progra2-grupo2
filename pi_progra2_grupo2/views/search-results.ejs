@@ -5,40 +5,49 @@
 <%- include('partials/head') %>
 
 
-<body>
-<!-- Header -->
-<% if (locals.user != undefined) { %>
-	<%- include('partials/headerLogeado') %>
-<% } else { %>
-	<%- include('partials/headerNoLogeado') %>
-<% } %>
-<!-- /Header -->
+	<body>
+		<!-- Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('partials/headerLogeado') %>
+				<% } else { %>
+					<%- include('partials/headerNoLogeado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Resultados de búsqueda</h2>
-			</div>
-			<% for( let i=0; i <product.length; i++ ) { %>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/id/<%= product[i].idProducto %>">
-						<article class="product-box_data">
-							<h2><%= product[i].nombre %></h2>
-							<p><%= product[i].descripcion %></p>
-							<img src="/images/products/<%= product[i].fotoProducto %>" alt="<%= product[i].nombre %>">
-						</article>
-					</a>
-				</section>
-			</div>
-			<% } %>
-				</div>
-			</div>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Resultados de búsqueda</h2>
+									</div>
+									<% if (product.length<1) { %>
+										<h2>No se encontro ningun producto</h2>
+										<% } %>
+											<% for( let i=0; i <product.length; i++ ) { %>
+												<div class="col-12 col-sm-6 col-lg-3">
+													<section class="product-box">
+														<a href="/products/id/<%= product[i].idProducto %>">
+															<article class="product-box_data">
+																<h2>
+																	<%= product[i].nombre %>
+																</h2>
+																<p>
+																	<%= product[i].descripcion %>
+																</p>
+																<a href=""><img src="/images/products/<%= product[i].fotoProducto %>"
+																	alt="<%= product[i].nombre %>"></a>
+															</article>
+														</a>
+													</section>
+												</div>
+												<% } %>
 
-			<!-- footer -->
-			<%- include('partials/footer') %>
-				<!-- /footer -->
+								</div>
+							</div>
+
+							<!-- footer -->
+							<%- include('partials/footer') %>
+								<!-- /footer -->
 	</body>
 
 </html>

@@ -34,7 +34,7 @@
 							<p class="product-detail-description">
 								<%= product.descripcion %>
 							</p>
-							<p class="product-detail-publisher">Publicado por: <%= product.usuario.nombre %></p>
+							<a href="/users/profile/id/<%= product.usuario.id %>"><p class="product-detail-publisher">Publicado por: <%= product.usuario.nombre %></p></a>
 						</article>
 
 						<div class="col-12 col-lg-4">
@@ -42,7 +42,7 @@
 								<% if (product.comentarios.length> 0) { %>
 									<% for (let i=0; i < product.comentarios.length; i++) { %>
 										<article>
-											<img src="/images/users/<%= product.comentarios[i].usuario.fotoPerfil %>" alt="<%= product.comentarios[i].usuario.nombre %>">
+											<a href=""></a><img src="/images/users/<%= product.comentarios[i].usuario.fotoPerfil %>" alt="<%= product.comentarios[i].usuario.nombre %>">
 
 											<div class="data">
 												<p class="user">
