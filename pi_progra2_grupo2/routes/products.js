@@ -11,6 +11,7 @@ router.post('/add', productController.addProduct);
 
 router.get('/:id/edit', productController.edit);
 router.post('/:id/edit', productController.editProduct);
+
 router.post('/:id/eliminar', productController.deleteProduct);
 
 router.get('/search', productController.search);

@@ -24,8 +24,8 @@ const controller = {
                     association: "comentarios",
                     include: [{ association: "usuario" }]
                 },
-                { 
-                    association: "usuario" 
+                {
+                    association: "usuario"
                 }
             ]
         })
@@ -33,8 +33,8 @@ const controller = {
                 if (!producto) {
                     return res.send("Producto no encontrado")
                 }
-                return res.render('product', { product: producto})
-            })                                                    
+                return res.render('product', { product: producto })
+            })
             .catch(function (error) {
                 return res.send(error)
             })
@@ -50,7 +50,7 @@ const controller = {
     },
 
     addProduct: function (req, res) {
-    
+
         db.Producto.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
@@ -58,7 +58,7 @@ const controller = {
             idUsuario: req.session.user.id
         })
             .then(function (resultado) {
-                return res.redirect('/users/profile/id/'+req.session.user.id);
+                return res.redirect('/users/profile/id/' + req.session.user.id);
             })
 
             .catch(function (error) {
@@ -67,11 +67,15 @@ const controller = {
     },
 
     edit: function (req, res) {
-         if (req.session.user == undefined) {
-         return res.redirect("/users/login");
-         }
-         db.Producto.findByPk(req.params.id)
+        if (req.session.user == undefined) {
+            return res.redirect("/users/login");
+        }
+
+        db.Producto.findByPk(req.params.id)
             .then(function (resultado) {
+                if (req.session.user.id != resultado.idUsuario) {
+                    return res.redirect("/");
+                }
                 return res.render("product-edit", { product: resultado });
             })
             .catch(function (error) {
@@ -80,6 +84,7 @@ const controller = {
     },
 
     editProduct: function (req, res) {
+
         db.Producto.update({
             fotoProducto: req.body.fotoProducto,
             nombre: req.body.nombre,
@@ -96,26 +101,37 @@ const controller = {
                 return res.send(error);
             });
     },
+
     deleteProduct: function (req, res) {
-        db.Comentario.destroy({
-            where: {
-                idProducto: req.params.id
-            }
-        })
-            .then(function() {
-                db.Producto.destroy({
-                    where: {
-                        idProducto: req.params.id
-                    }
-                })
-                .then(function() {
-                    return res.redirect('/users/profile/id/' + req.session.user.id);
-                })
-                .catch(function(error) {
-                    return res.send(error);
+
+        if (req.session.user == undefined) {
+            return res.redirect("/users/login");
+        }
+// hay que buscar el producto primero para poder chequear el id del usuario 
+        db.Producto.findByPk(req.params.id)
+            .then(function (producto) {
+                if (req.session.user.id != producto.idUsuario) {
+                    return res.redirect("/");
+                }
+
+                return db.Comentario.destroy({
+                    where: { idProducto: req.params.id }
                 });
             })
-            .catch(function(error) {
+// si no ponemos el return antes de terminar cada "then", 
+// se inicia el prox "then" aunque no haya terminado el anteriror. 
+// en este caso si no ponemos el the despues de eliminar el comentario
+// pasa a eliminar el producto y puede dar error si hay muchos comentarios
+
+            .then(function () {
+                return db.Producto.destroy({
+                    where: { idProducto: req.params.id }
+                });
+            })
+            .then(function () {
+                return res.redirect('/users/profile/id/' + req.session.user.id);
+            })
+            .catch(function (error) {
                 return res.send(error);
             });
     },
@@ -142,22 +158,22 @@ const controller = {
             });
 
     },
-    
+
     addComentario: function (req, res) {
-    if (req.session.user == undefined) {
-        return res.redirect("/users/login")
-    }
-    db.Comentario.create({
-        comentario: req.body.comentario,
-        idUsuario: req.session.user.id,
-        idProducto: req.params.id
-    })
-        .then(function() {
-        return res.redirect("/products/id/" + req.params.id)
+        if (req.session.user == undefined) {
+            return res.redirect("/users/login")
+        }
+        db.Comentario.create({
+            comentario: req.body.comentario,
+            idUsuario: req.session.user.id,
+            idProducto: req.params.id
         })
-        .catch(function(error) {
-        return res.send(error)
-        })
+            .then(function () {
+                return res.redirect("/products/id/" + req.params.id)
+            })
+            .catch(function (error) {
+                return res.send(error)
+            })
     }
 }
 
