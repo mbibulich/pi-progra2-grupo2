@@ -9,7 +9,6 @@ const controller = {
     processRegister: function (req, res) {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            // No hay errores, seguimos adelante
             return res.send(errors.mapped());
         }
         let form = req.body
