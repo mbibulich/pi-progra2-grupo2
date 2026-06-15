@@ -1,5 +1,7 @@
 const db = require('../db/models')
 const op = db.Sequelize.Op
+const { validationResult } = require("express-validator");
+
 
 const controller = {
     index: function (req, res) {
@@ -50,6 +52,14 @@ const controller = {
     },
 
     addProduct: function (req, res) {
+        if (req.session.user == undefined) {
+            return res.redirect('/users/login')
+        }
+
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.send(errors.mapped())
+        }
 
         db.Producto.create({
             nombre: req.body.nombre,
@@ -84,6 +94,11 @@ const controller = {
     },
 
     editProduct: function (req, res) {
+
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.send(errors.mapped())
+        }
 
         db.Producto.update({
             fotoProducto: req.body.fotoProducto,
